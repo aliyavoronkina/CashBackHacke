@@ -2,9 +2,9 @@ name: Java CI
 
 on:
   push:
-    branches: [ main, testng, junit4 ]
+    branches: [ main, testng, junit4, junit5, junit-platform ]
   pull_request:
-    branches: [ main, testng, junit4 ]
+    branches: [ main, testng, junit4, junit5, junit-platform ]
 
 jobs:
   test:
@@ -20,6 +20,9 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: 'gradle'
+
+    - name: Make gradlew executable
+      run: chmod +x gradlew
 
     - name: Run tests with Gradle
       run: |
